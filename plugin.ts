@@ -10,15 +10,26 @@ interface Options {
 }
 
 /**
- * This is essentially a re-implementation of `@shellscape/apollo-log`
- * to help reduce log spam. It will only log one line per event
- * (usually), and uses the Pino logger that we all know and love from the
- * REST API. It also reads the `$DEBUG` env var to determine when to show
- * debug messages, which can be helpful if you're unsure at which part of
- * the process your operation failed. By default, however, it will only
+ * Create a new instance of the logger plugin using the given options.
+ * By default, this plugin instantiates a new `pino.Logger` with default
+ * settings, but you can pass in your own logger instance with
+ * configuration shared across the application. It also reads the
+ * `$DEBUG` var for `"apollo:*"` to determine when to show debug
+ * messages, which can be helpful if you're unsure at which part of the
+ * process your operation failed. By default, however, it will only
  * show which operations started/completed, when those
  * starts/completions occurred, and what kind of variables were sent
  * along with the operations.
+ *
+ * @example
+ *  import { ApolloLoggerPlugin } from 'apollo-logger-plugin'
+ *  import { ApolloServer } from 'apollo-server'
+ *
+ *  export const server = new ApolloServer({
+ *    plugins: [
+ *      ApolloLoggerPlugin()
+ *    ]
+ *  })
  */
 export function ApolloLoggerPlugin(options: Options): ApolloServerPlugin {
   const {
