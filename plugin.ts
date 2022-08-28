@@ -2,8 +2,8 @@ import type { ApolloServerPlugin } from 'apollo-server-plugin-base'
 import { inspect } from 'util'
 import { nanoid as NanoID, customAlphabet } from 'nanoid'
 import { pino, type Logger } from 'pino'
-import { clean } from './clean.js'
 import { DateTime } from 'luxon'
+import { clean } from './clean'
 
 /**
  * Options for the `ApolloLoggerPlugin()` factory function.
