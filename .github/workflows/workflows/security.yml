@@ -1,0 +1,13 @@
+name: Security
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+jobs:
+  packages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: yarn install --immutable --immutable-cache --check-cache
