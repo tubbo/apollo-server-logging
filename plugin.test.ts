@@ -1,7 +1,12 @@
 import { ApolloLoggerPlugin } from './plugin'
 import { jest, test } from '@jest/globals'
+import type {
+  GraphQLRequestListener,
+  GraphQLServerListener,
+} from 'apollo-server-plugin-base'
 
-const logger = {
+let childLogger
+const mockLogger = () => ({
   level: 'info',
 
   silent: jest.fn(),
@@ -11,70 +16,99 @@ const logger = {
   warn: jest.fn(),
   trace: jest.fn(),
   error: jest.fn(),
-  child: () => ({
-    level: 'info',
+  child: () => {
+    childLogger = {
+      level: 'info',
 
-    silent: jest.fn(),
-    info: jest.fn(),
-    debug: jest.fn(),
-    fatal: jest.fn(),
-    warn: jest.fn(),
-    trace: jest.fn(),
-    error: jest.fn(),
-  }),
-}
+      silent: jest.fn(),
+      info: jest.fn(),
+      debug: jest.fn(),
+      fatal: jest.fn(),
+      warn: jest.fn(),
+      trace: jest.fn(),
+      error: jest.fn(),
+    }
+
+    return childLogger
+  },
+})
 
 test('server logging', async () => {
+  const logger = mockLogger()
+
   logger.level = 'info'
-  const plugin = ApolloLoggerPlugin({ logger })
-  const { serverWillStop } = await plugin.serverWillStart()
+  const { serverWillStart } = ApolloLoggerPlugin({ logger })
+  const { serverWillStop } = (await serverWillStart(
+    {}
+  )) as GraphQLServerListener
 
   await serverWillStop()
 
-  expect(logger.info).toHaveBeenCalledWith('Starting GraphQL on "/graphql"')
+  expect(logger.info).toHaveBeenCalledWith('Starting GraphQL on "/graphql"...')
   expect(logger.info).toHaveBeenCalledWith('Stopping GraphQL on "/graphql"')
 })
 
 test('request logging', async () => {
+  const logger = mockLogger()
   logger.level = 'info'
-  const plugin = ApolloLoggerPlugin({ logger })
-  const { willSendResponse, didResolveOperation } =
-    await plugin.requestDidStart()
+  const { requestDidStart } = ApolloLoggerPlugin({ logger })
+  const { didResolveOperation, willSendResponse } = (await requestDidStart(
+    {}
+  )) as GraphQLRequestListener
 
-  await didResolveOperation()
-  await willSendResponse()
+  await didResolveOperation({
+    operation: { operation: 'query' },
+    operationName: 'TestQuery',
+    request: { variables: { foo: 'bar' } },
+  })
+  await willSendResponse({
+    operation: 'query',
+    operationName: 'TestQuery',
+  })
 
-  expect(logger.info).toHaveBeenCalledWith('Started query TestQuery')
-  expect(logger.info).toHaveBeenCalledWith('Parameters: {"foo": "bar"}')
-  expect(logger.info).toHaveBeenCalledWith('Completed query TestQuery in 0ms')
+  expect(childLogger.info).toHaveBeenCalled()
+  expect(childLogger.info).toHaveBeenCalledWith('Started query TestQuery')
+  expect(childLogger.info).toHaveBeenCalledWith("Parameters: { foo: 'bar' }")
 })
 
 test('debug logging', async () => {
+  const logger = mockLogger()
   logger.level = 'debug'
-  const plugin = ApolloLoggerPlugin({ logger })
+  const { requestDidStart } = ApolloLoggerPlugin({ logger })
   const {
     didResolveSource,
     parsingDidStart,
     validationDidStart,
     executionDidStart,
     willSendResponse,
-  } = plugin.requestDidStart()
-  const parsingDidEnd = await parsingDidStart()
-  const validationDidEnd = await validationDidStart()
-  const executionDidEnd = await executionDidStart()
+  } = (await requestDidStart()) as GraphQLRequestListener
+  const parsingDidEnd = await parsingDidStart({})
+  const validationDidEnd = await validationDidStart({})
 
-  await didResolveSource()
+  await executionDidStart({
+    operationName: 'TestMutation',
+    operation: { operation: 'mutation' },
+  })
+  await didResolveSource({
+    source: 'mutation TestMutation { testMutation }',
+  })
   await parsingDidEnd()
   await validationDidEnd()
-  await executionDidEnd()
-  await willSendResponse()
+  await willSendResponse({
+    operationName: 'TestMutation',
+    operation: 'mutation',
+  })
 
-  expect(logger.debug).toHaveBeenCalledWith('Starting GraphQL request...')
-  expect(logger.debug).toHaveBeenCalledWith('Parsing source...')
-  expect(logger.debug).toHaveBeenCalledWith('Parsing complete')
-  expect(logger.debug).toHaveBeenCalledWith('Validating GraphQL document...')
-  expect(logger.debug).toHaveBeenCalledWith(
+  expect(childLogger.debug).toHaveBeenCalledWith('Starting GraphQL request...')
+  expect(childLogger.debug).toHaveBeenCalledWith('Parsing source...')
+  expect(childLogger.debug).toHaveBeenCalledWith('Parsing complete')
+  expect(childLogger.debug).toHaveBeenCalledWith(
+    'Validating GraphQL document...'
+  )
+  expect(childLogger.debug).toHaveBeenCalledWith(
     'Validation complete. Document cached.'
   )
-  expect(logger.debug).toHaveBeenCalledWith('Executing query TestQuery...')
+  expect(childLogger.debug).toHaveBeenCalledWith(
+    'Executing mutation TestMutation...'
+  )
 })

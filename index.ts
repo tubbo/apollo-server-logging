@@ -1,2 +1,2 @@
-export * from './plugin'
-export * from './clean'
+export * from './plugin.js'
+export * from './clean.js'

@@ -2,6 +2,7 @@
   "name": "apollo-server-logging",
   "version": "1.0.0",
   "license": "MIT",
+  "type": "module",
   "packageManager": "yarn@3.2.3",
   "repository": "https://github.com/tubbo/apollo-server-logging.git",
   "peerDependencies": {
@@ -9,16 +10,13 @@
     "pino": "^8"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.13",
-    "@babel/preset-env": "^7.18.10",
-    "@babel/preset-typescript": "^7.18.6",
     "@commitlint/cli": "^17.1.1",
     "@commitlint/config-conventional": "^17.1.0",
     "@jest/globals": "^29.0.1",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
-    "@types/babel__core": "^7",
-    "@types/babel__preset-env": "^7",
+    "@swc/core": "^1.2.244",
+    "@swc/jest": "^0.2.22",
     "@types/eslint": "^8",
     "@types/jest": "^28.1.8",
     "@types/luxon": "^3",
@@ -27,7 +25,6 @@
     "@typescript-eslint/eslint-plugin": "^5.35.1",
     "@typescript-eslint/parser": "^5.35.1",
     "apollo-server-plugin-base": "^3.6.2",
-    "babel-jest": "^29.0.1",
     "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jest": "^26.8.7",
@@ -44,14 +41,12 @@
   },
   "exports": {
     "./": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
     },
     "./*": {
       "types": "./dist/*.d.ts",
-      "import": "./dist/esm/*.js",
-      "require": "./dist/cjs/*.js"
+      "import": "./dist/*.js"
     }
   },
   "files": [
@@ -59,12 +54,9 @@
   ],
   "scripts": {
     "prepare": "husky install",
-    "build": "run-p 'build:*'",
-    "build:dts": "tsc --declaration --emitDeclarationOnly --declarationMap --outDir dist/types",
-    "build:esm": "tsc --module esnext --target esnext --outDir dist/esm",
-    "build:cjs": "tsc --module commonjs --target es2016 --outDir dist/cjs",
+    "build": "tsc",
     "types": "tsc --noEmit",
-    "test": "jest",
+    "test": "node --experimental-vm-modules $(yarn bin jest)",
     "lint": "eslint .",
     "style": "prettier --check .",
     "fmt": "prettier --write . && eslint . --fix"
@@ -94,6 +86,9 @@
     ]
   },
   "jest": {
+    "transform": {
+      "^.+\\.(t|j)sx?$": "@swc/jest"
+    },
     "extensionsToTreatAsEsm": [
       ".ts",
       ".tsx"

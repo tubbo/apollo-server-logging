@@ -83,7 +83,7 @@ export function ApolloLoggerPlugin(options: Options): ApolloServerPlugin {
 
   return {
     async serverWillStart() {
-      parentLogger.info(`Starting GraphQL on "/${path}"...`)
+      parentLogger.info(`Starting GraphQL on "${path}"...`)
 
       if (process.env.DEBUG?.match(/apollo:/)) {
         parentLogger.level = 'debug'
@@ -91,7 +91,7 @@ export function ApolloLoggerPlugin(options: Options): ApolloServerPlugin {
 
       return {
         async serverWillStop() {
-          parentLogger.info(`Stopping GraphQL on "/${path}"`)
+          parentLogger.info(`Stopping GraphQL on "${path}"`)
         },
       }
     },
@@ -168,7 +168,7 @@ export function ApolloLoggerPlugin(options: Options): ApolloServerPlugin {
         async willSendResponse({ operation, operationName }) {
           const kind = operation?.operation || 'operation'
           const name = operationName || ''
-          const duration = DateTime.now().minus(started).toMillis()
+          const duration = DateTime.now().diff(started).toMillis()
 
           logger.info(`Completed ${kind} ${name} in ${duration}ms`)
         },
