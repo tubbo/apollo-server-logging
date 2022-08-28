@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      - run: yarn test --ci
+      - run: yarn test --ci --max-workers=2 --pass-with-no-tests
   lint:
     runs-on: ubuntu-latest
     steps:
