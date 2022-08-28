@@ -43,9 +43,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/babel__core", "npm:7.1.19"],\
             ["@types/babel__preset-env", "npm:7.9.2"],\
             ["@types/eslint", "npm:8.4.6"],\
+            ["@types/luxon", "npm:3.0.0"],\
             ["@types/node", "npm:18.7.13"],\
             ["@types/prettier", "npm:2.7.0"],\
-            ["@types/uuid", "npm:8.3.4"],\
             ["@typescript-eslint/eslint-plugin", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:5.35.1"],\
             ["@typescript-eslint/parser", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:5.35.1"],\
             ["apollo-server-plugin-base", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:3.6.2"],\
@@ -56,13 +56,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["husky", "npm:8.0.1"],\
             ["jest", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:29.0.1"],\
             ["lint-staged", "npm:13.0.3"],\
+            ["luxon", "npm:3.0.2"],\
+            ["nanoid", "npm:4.0.0"],\
             ["npm-run-all", "npm:4.1.5"],\
             ["pino", "npm:8.4.2"],\
             ["prettier", "npm:2.7.1"],\
             ["semantic-release", "npm:19.0.5"],\
             ["ts-node", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:10.9.1"],\
-            ["typescript", "patch:typescript@npm%3A4.8.2#~builtin<compat/typescript>::version=4.8.2&hash=a1c5e5"],\
-            ["uuid", "npm:8.3.2"]\
+            ["typescript", "patch:typescript@npm%3A4.8.2#~builtin<compat/typescript>::version=4.8.2&hash=a1c5e5"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -4190,6 +4191,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/luxon", [\
+        ["npm:3.0.0", {\
+          "packageLocation": "./.yarn/cache/@types-luxon-npm-3.0.0-ff41122ad1-7738d3f4b9.zip/node_modules/@types/luxon/",\
+          "packageDependencies": [\
+            ["@types/luxon", "npm:3.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/minimist", [\
         ["npm:1.2.2", {\
           "packageLocation": "./.yarn/cache/@types-minimist-npm-1.2.2-a445de65da-b8da83c66e.zip/node_modules/@types/minimist/",\
@@ -4263,15 +4273,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-stack-utils-npm-2.0.1-867718ab70-205fdbe332.zip/node_modules/@types/stack-utils/",\
           "packageDependencies": [\
             ["@types/stack-utils", "npm:2.0.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@types/uuid", [\
-        ["npm:8.3.4", {\
-          "packageLocation": "./.yarn/cache/@types-uuid-npm-8.3.4-7547f4402c-6f11f3ff70.zip/node_modules/@types/uuid/",\
-          "packageDependencies": [\
-            ["@types/uuid", "npm:8.3.4"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4749,9 +4750,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/babel__core", "npm:7.1.19"],\
             ["@types/babel__preset-env", "npm:7.9.2"],\
             ["@types/eslint", "npm:8.4.6"],\
+            ["@types/luxon", "npm:3.0.0"],\
             ["@types/node", "npm:18.7.13"],\
             ["@types/prettier", "npm:2.7.0"],\
-            ["@types/uuid", "npm:8.3.4"],\
             ["@typescript-eslint/eslint-plugin", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:5.35.1"],\
             ["@typescript-eslint/parser", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:5.35.1"],\
             ["apollo-server-plugin-base", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:3.6.2"],\
@@ -4762,13 +4763,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["husky", "npm:8.0.1"],\
             ["jest", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:29.0.1"],\
             ["lint-staged", "npm:13.0.3"],\
+            ["luxon", "npm:3.0.2"],\
+            ["nanoid", "npm:4.0.0"],\
             ["npm-run-all", "npm:4.1.5"],\
             ["pino", "npm:8.4.2"],\
             ["prettier", "npm:2.7.1"],\
             ["semantic-release", "npm:19.0.5"],\
             ["ts-node", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:10.9.1"],\
-            ["typescript", "patch:typescript@npm%3A4.8.2#~builtin<compat/typescript>::version=4.8.2&hash=a1c5e5"],\
-            ["uuid", "npm:8.3.2"]\
+            ["typescript", "patch:typescript@npm%3A4.8.2#~builtin<compat/typescript>::version=4.8.2&hash=a1c5e5"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -8955,6 +8957,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["luxon", [\
+        ["npm:3.0.2", {\
+          "packageLocation": "./.yarn/cache/luxon-npm-3.0.2-0ce4d0fdf9-39a29b225c.zip/node_modules/luxon/",\
+          "packageDependencies": [\
+            ["luxon", "npm:3.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["make-dir", [\
         ["npm:3.1.0", {\
           "packageLocation": "./.yarn/cache/make-dir-npm-3.1.0-d1d7505142-484200020a.zip/node_modules/make-dir/",\
@@ -9329,6 +9340,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/mute-stream-npm-0.0.8-489a7d6c2b-ff48d251fc.zip/node_modules/mute-stream/",\
           "packageDependencies": [\
             ["mute-stream", "npm:0.0.8"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["nanoid", [\
+        ["npm:4.0.0", {\
+          "packageLocation": "./.yarn/cache/nanoid-npm-4.0.0-924f5c6312-7d5946df5c.zip/node_modules/nanoid/",\
+          "packageDependencies": [\
+            ["nanoid", "npm:4.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -12069,15 +12089,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/util-deprecate-npm-1.0.2-e3fe1a219c-474acf1146.zip/node_modules/util-deprecate/",\
           "packageDependencies": [\
             ["util-deprecate", "npm:1.0.2"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["uuid", [\
-        ["npm:8.3.2", {\
-          "packageLocation": "./.yarn/cache/uuid-npm-8.3.2-eca0baba53-5575a8a75c.zip/node_modules/uuid/",\
-          "packageDependencies": [\
-            ["uuid", "npm:8.3.2"]\
           ],\
           "linkType": "HARD"\
         }]\

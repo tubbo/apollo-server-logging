@@ -1,13 +1,16 @@
 import type { ApolloServerPlugin } from 'apollo-server-plugin-base'
 import { inspect } from 'util'
-import { v4 as uuid } from 'uuid'
-import pino, { type Logger } from 'pino'
-import { clean } from './clean'
+import { nanoid } from 'nanoid'
+import { pino, type Logger } from 'pino'
+import { clean } from './clean.js'
+import { DateTime } from 'luxon'
 
 interface Options {
   logger?: Logger
   cleanedVariableNames?: string[]
 }
+
+export type { Options as ApolloLoggerPluginOptions }
 
 /**
  * Create a new instance of the logger plugin using the given options.
@@ -47,15 +50,16 @@ export function ApolloLoggerPlugin(options: Options): ApolloServerPlugin {
     },
 
     async requestDidStart() {
-      const pid = uuid().split('-')[0]
-      const logger = parentLogger.child({ pid })
+      const logger = parentLogger.child({ pid: nanoid() })
+      const started = DateTime.now()
 
       function logErrors(...errors: unknown[]) {
-        for (const error of errors)
+        for (const error of errors) {
           if (error instanceof Error) {
             logger.error(`${error.name}: ${error.message}`)
             logger.debug(error)
           }
+        }
       }
 
       logger.debug('Starting GraphQL request...')
@@ -72,8 +76,9 @@ export function ApolloLoggerPlugin(options: Options): ApolloServerPlugin {
         }) {
           const params = inspect(clean(cleanedVariableNames, variables))
           const kind = operation.operation
+          const name = operationName || ''
 
-          logger.info(`Started ${kind} ${operationName || ''}`)
+          logger.info(`Started ${kind} ${name}`)
           logger.info(`Parameters: ${params}`)
         },
 
@@ -108,14 +113,17 @@ export function ApolloLoggerPlugin(options: Options): ApolloServerPlugin {
         },
 
         async executionDidStart({ operationName, operation }) {
-          logger.debug(`Executing ${operation.operation} ${operationName}...`)
+          const typeName = operation?.operation || 'operation'
+
+          logger.debug(`Executing ${typeName} ${operationName}...`)
         },
 
         async willSendResponse({ operation, operationName }) {
           const kind = operation?.operation || 'operation'
           const name = operationName || ''
+          const duration = DateTime.now().minus(started).toMillis()
 
-          logger.info(`Completed ${kind} ${name}`)
+          logger.info(`Completed ${kind} ${name} in ${duration}ms`)
         },
       }
     },
