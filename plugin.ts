@@ -1,6 +1,6 @@
 import type { ApolloServerPlugin } from 'apollo-server-plugin-base'
 import { inspect } from 'util'
-import { nanoid } from 'nanoid'
+import { nanoid as NanoID, customAlphabet } from 'nanoid'
 import { pino, type Logger } from 'pino'
 import { clean } from './clean.js'
 import { DateTime } from 'luxon'
@@ -17,12 +17,30 @@ interface Options {
   logger?: Logger
 
   /**
+   * The path your server accepts GraphQL requests on. Typically this
+   * can be left at the default, `/graphql`, but is configurable here so
+   * your log messages make sense if you serve GraphQL on an alternative
+   * path.
+   */
+  path?: string
+
+  /**
    * When a variable is passed through matching one of these names, its
    * value is replaced with `"[REDACTED]"` in the logs. Since the plugin
    * logs all parameters by default, this prevents accidentally logging
    * personally identifiable or sensitive information.
    */
   cleanedVariableNames?: string[]
+
+  /**
+   * Function for generating a NanoID for PIDs. By default this uses
+   * `customAlphabet()` to generate a hexadecimal string, but you can
+   * pass in a custom function here to generate it any way you want.
+   * This allows you to track request logs on busy servers, by searching
+   * for this ID you can see which "Started" and "Completed" messages
+   * belong to one another.
+   */
+  nanoid?: typeof NanoID
 
   /**
    * Size of PID when generated with `nanoid`. Default is 10, but can be
@@ -58,21 +76,28 @@ export type { Options as ApolloLoggerPluginOptions }
 export function ApolloLoggerPlugin(options: Options): ApolloServerPlugin {
   const {
     logger: parentLogger = pino(),
-    idSize = 10,
+    path = '/graphql',
+    nanoid = () => customAlphabet('1234567890abcdef', 10),
     cleanedVariableNames = ['password', 'token', 'captcha'],
   } = options
 
   return {
     async serverWillStart() {
-      parentLogger.info('Starting GraphQL on "/graphql"...')
+      parentLogger.info(`Starting GraphQL on "/${path}"...`)
 
       if (process.env.DEBUG?.match(/apollo:/)) {
         parentLogger.level = 'debug'
       }
+
+      return {
+        async serverWillStop() {
+          parentLogger.info(`Stopping GraphQL on "/${path}"`)
+        },
+      }
     },
 
     async requestDidStart() {
-      const logger = parentLogger.child({ pid: nanoid(idSize) })
+      const logger = parentLogger.child({ pid: nanoid() })
       const started = DateTime.now()
 
       function logErrors(...errors: unknown[]) {
