@@ -1,5 +1,3 @@
-export const DIRTY_VARIABLE_NAMES: string[] = ['password', 'token']
-
 export type Variables = {
   [name: string]: unknown
 }

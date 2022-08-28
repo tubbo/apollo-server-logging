@@ -1,7 +1,6 @@
 {
   "name": "apollo-server-logging",
   "version": "1.0.0",
-  "type": "module",
   "license": "MIT",
   "packageManager": "yarn@3.2.3",
   "repository": "https://github.com/tubbo/apollo-server-logging.git",
@@ -107,9 +106,7 @@
         {
           "targets": {
             "node": "current"
-          },
-          "loose": true,
-          "modules": false
+          }
         }
       ],
       "@babel/preset-typescript"
