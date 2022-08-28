@@ -5,9 +5,30 @@ import { pino, type Logger } from 'pino'
 import { clean } from './clean.js'
 import { DateTime } from 'luxon'
 
+/**
+ * Options for the `ApolloLoggerPlugin()` factory function.
+ */
 interface Options {
+  /**
+   * The Pino Logger you wish to use for writing log messages. By
+   * default, the plugin will call `pino()` to instantiate a logger with
+   * default options.
+   */
   logger?: Logger
+
+  /**
+   * When a variable is passed through matching one of these names, its
+   * value is replaced with `"[REDACTED]"` in the logs. Since the plugin
+   * logs all parameters by default, this prevents accidentally logging
+   * personally identifiable or sensitive information.
+   */
   cleanedVariableNames?: string[]
+
+  /**
+   * Size of PID when generated with `nanoid`. Default is 10, but can be
+   * reduced if it's too wide for your logs.
+   */
+  idSize?: number
 }
 
 export type { Options as ApolloLoggerPluginOptions }
@@ -37,6 +58,7 @@ export type { Options as ApolloLoggerPluginOptions }
 export function ApolloLoggerPlugin(options: Options): ApolloServerPlugin {
   const {
     logger: parentLogger = pino(),
+    idSize = 10,
     cleanedVariableNames = ['password', 'token', 'captcha'],
   } = options
 
@@ -50,7 +72,7 @@ export function ApolloLoggerPlugin(options: Options): ApolloServerPlugin {
     },
 
     async requestDidStart() {
-      const logger = parentLogger.child({ pid: nanoid() })
+      const logger = parentLogger.child({ pid: nanoid(idSize) })
       const started = DateTime.now()
 
       function logErrors(...errors: unknown[]) {
