@@ -31,3 +31,6 @@ export const server = new ApolloServer({
   ]
 })
 ```
+
+[apollo server]: https://www.apollographql.com/docs/apollo-server/
+[pino]: https://github.com/pinojs/pino
