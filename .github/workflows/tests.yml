@@ -1,14 +1,5 @@
 name: Tests
-on:
-  push:
-    branches-ignore:
-      - main
-      - alpha
-      - beta
-      - next
-      - next-major
-      - '*.*.x'
-      - '*.x'
+on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
