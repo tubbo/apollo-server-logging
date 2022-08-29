@@ -5,7 +5,7 @@ on:
       - opened
       - synchronize
 concurrency:
-  group: ${{ github.ref || github.head_ref }}
+  group: ${{ github.workflow }}-${{ github.head_ref }}
   cancel-in-progress: true
 jobs:
   packages:
