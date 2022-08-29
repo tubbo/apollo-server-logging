@@ -7,6 +7,14 @@ Pino logger library rather than `loglevelnext`. This plugin's goal is to
 log GraphQL operations without a ton of noise, but allow for more
 in-depth messaging when needed.
 
+**Example Request Logs (using `pino-pretty`):**
+
+```
+INFO [2022-08-29 12:12:51 PM]: Started query HomePage
+INFO [2022-08-29 12:12:51 PM]: Parameters: {}
+INFO [2022-08-29 12:12:52 PM]: Completed query HomePage in 158ms
+```
+
 ## Usage
 
 Install the library:
