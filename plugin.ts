@@ -1,5 +1,4 @@
 import type { ApolloServerPlugin } from 'apollo-server-plugin-base'
-import type { nanoid as NanoID } from 'nanoid'
 import { inspect } from 'util'
 import { pino, type Logger } from 'pino'
 import { DateTime } from 'luxon'
@@ -40,7 +39,7 @@ interface Options {
    * for this ID you can see which "Started" and "Completed" messages
    * belong to one another.
    */
-  nanoid?: typeof NanoID
+  nanoid?: () => Promise<string>
 
   /**
    * Size of PID when generated with `nanoid`. Default is 10, but can be
