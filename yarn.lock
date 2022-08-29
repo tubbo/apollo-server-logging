@@ -2441,6 +2441,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.35.1
     "@typescript-eslint/parser": ^5.35.1
     apollo-server-plugin-base: ^3.6.2
+    conventional-changelog-conventionalcommits: ^5.0.0
     eslint: ^8.23.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-jest: ^26.8.7

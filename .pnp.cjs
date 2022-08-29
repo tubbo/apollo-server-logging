@@ -48,6 +48,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:5.35.1"],\
             ["@typescript-eslint/parser", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:5.35.1"],\
             ["apollo-server-plugin-base", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:3.6.2"],\
+            ["conventional-changelog-conventionalcommits", "npm:5.0.0"],\
             ["eslint", "npm:8.23.0"],\
             ["eslint-config-prettier", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:8.5.0"],\
             ["eslint-plugin-jest", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:26.8.7"],\
@@ -3293,6 +3294,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:5.35.1"],\
             ["@typescript-eslint/parser", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:5.35.1"],\
             ["apollo-server-plugin-base", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:3.6.2"],\
+            ["conventional-changelog-conventionalcommits", "npm:5.0.0"],\
             ["eslint", "npm:8.23.0"],\
             ["eslint-config-prettier", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:8.5.0"],\
             ["eslint-plugin-jest", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:26.8.7"],\
