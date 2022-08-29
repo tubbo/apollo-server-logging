@@ -3,7 +3,7 @@ import { inspect } from 'util'
 import { nanoid as NanoID, customAlphabet } from 'nanoid'
 import { pino, type Logger } from 'pino'
 import { DateTime } from 'luxon'
-import { clean } from './clean'
+import { clean } from './clean.js'
 
 /**
  * Options for the `ApolloLoggerPlugin()` factory function.
