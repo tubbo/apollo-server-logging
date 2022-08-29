@@ -1,6 +1,6 @@
 {
   "name": "apollo-server-logging",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "packageManager": "yarn@3.2.3",
   "repository": "https://github.com/tubbo/apollo-server-logging.git",

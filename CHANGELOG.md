@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/tubbo/apollo-server-logging/compare/v1.0.0...v1.0.1) (2022-08-29)
+
+
+### Bug Fixes
+
+* ensure tsc finds the type defs when checking types ([d36102b](https://github.com/tubbo/apollo-server-logging/commit/d36102b8e561711161b4426135629c8e8ca34630))
+
 # 1.0.0 (2022-08-29)
 
 
