@@ -1,22 +1,18 @@
 {
   "compilerOptions": {
-    "incremental": true,
-    "tsBuildInfoFile": "./.tsbuildinfo",
     "target": "es2016",
     "module": "node16",
-    "moduleResolution": "node16",
+    "moduleResolution": "nodenext",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "outDir": "./dist",
     "rootDir": "./",
     "baseUrl": "./",
-    "declaration": true,
     "sourceMap": true
   },
   "include": ["**/*.ts"],
-  "exclude": ["**/*.test.*", "**/*.spec.*", "dist/**/*"],
+  "exclude": ["**/*.test.*", "**/*.spec.*", "dist/**/*", "__*__/**/*"],
   "typedocOptions": {
     "exclude": ["**/*.test.*"],
     "entryPoints": ["index.ts"]

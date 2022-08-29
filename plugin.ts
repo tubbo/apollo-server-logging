@@ -1,6 +1,6 @@
 import type { ApolloServerPlugin } from 'apollo-server-plugin-base'
+import type { nanoid as NanoID } from 'nanoid'
 import { inspect } from 'util'
-import { nanoid as NanoID, customAlphabet } from 'nanoid'
 import { pino, type Logger } from 'pino'
 import { DateTime } from 'luxon'
 import { clean } from './clean.js'
@@ -77,7 +77,16 @@ export function ApolloLoggerPlugin(options: Options): ApolloServerPlugin {
   const {
     logger: parentLogger = pino(),
     path = '/graphql',
-    nanoid = () => customAlphabet('1234567890abcdef', 10),
+    /**
+     * We need to use a dynamic import here to support CommonJS for the
+     * time being. Eventually, this will be deprecated and `nanoid()`
+     * will be a synchronous method.
+     */
+    nanoid = async () => {
+      const { customAlphabet } = await import('nanoid')
+
+      return customAlphabet('1234567890abcdef', 10)
+    },
     cleanedVariableNames = ['password', 'token', 'captcha'],
   } = options
 
@@ -97,7 +106,8 @@ export function ApolloLoggerPlugin(options: Options): ApolloServerPlugin {
     },
 
     async requestDidStart() {
-      const logger = parentLogger.child({ pid: nanoid() })
+      const session = await nanoid()
+      const logger = parentLogger.child({ session })
       const started = DateTime.now()
 
       function logErrors(...errors: unknown[]) {

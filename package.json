@@ -2,7 +2,6 @@
   "name": "apollo-server-logging",
   "version": "1.0.0",
   "license": "MIT",
-  "type": "module",
   "packageManager": "yarn@3.2.3",
   "repository": "https://github.com/tubbo/apollo-server-logging.git",
   "peerDependencies": {
@@ -40,13 +39,15 @@
     "typescript": "^4.8.2"
   },
   "exports": {
-    "./": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
     },
     "./*": {
-      "types": "./dist/*.d.ts",
-      "import": "./dist/*.js"
+      "types": "./dist/types/*.d.ts",
+      "import": "./dist/esm/*.js",
+      "require": "./dist/cjs/*.js"
     }
   },
   "files": [
@@ -54,12 +55,17 @@
   ],
   "scripts": {
     "prepare": "husky install",
-    "build": "tsc",
+    "build": "run-p build:types build:esm build:cjs",
+    "build:types": "tsc --declaration --emitDeclarationOnly --declarationMap --outDir dist/types",
+    "build:esm": "tsc --module esnext --target esnext --outDir dist/esm",
+    "build:cjs": "tsc --module commonjs --target es2016 --outDir dist/cjs",
     "types": "tsc --noEmit",
     "test": "node --experimental-vm-modules $(yarn bin jest)",
     "lint": "eslint .",
     "style": "prettier --check .",
-    "fmt": "prettier --write . && eslint . --fix"
+    "fmt": "prettier --write . && eslint . --fix",
+    "clean": "rm -rf dist",
+    "publish": "semantic-release"
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
