@@ -23,3 +23,4 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.RELEASE_TOKEN }}
           NPM_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
+          HUSKY_SKIP_HOOKS: '1'
