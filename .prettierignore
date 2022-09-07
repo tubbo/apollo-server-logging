@@ -2,3 +2,4 @@
 .pnp*
 dist
 docs
+CHANGELOG.md
