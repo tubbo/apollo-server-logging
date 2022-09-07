@@ -5,6 +5,7 @@
   "platformAutomerge": true,
   "prCreation": "not-pending",
   "timezone": "America/New_York",
+  "automerge": true,
   "packageRules": [
     {
       "description": "Wait until NPM unpublish window expires before opening PRs",
