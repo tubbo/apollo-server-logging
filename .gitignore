@@ -1,3 +1,4 @@
 .tsbuildinfo
 .yarn/unplugged
 dist
+coverage
