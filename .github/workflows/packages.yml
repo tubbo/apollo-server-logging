@@ -1,20 +1,26 @@
-name: Security
+name: Packages
 on:
   pull_request:
     types:
       - opened
       - synchronize
+    paths:
+      - package.json
+      - yarn.lock
+      - .yarn/cache
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref }}
   cancel-in-progress: true
 jobs:
-  packages:
+  cache:
+    name: Check Cache
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
       - run: yarn install --immutable --check-cache
   review:
+    name: Dependency Review
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
