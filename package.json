@@ -64,7 +64,7 @@
     "build:cjs": "tsc --module commonjs --target es2016 --outDir dist/cjs",
     "docs": "typedoc",
     "types": "tsc --noEmit",
-    "test": "node --experimental-vm-modules $(yarn bin jest)",
+    "test": "node --no-warnings --experimental-vm-modules $(yarn bin jest)",
     "lint": "eslint .",
     "style": "prettier --check .",
     "fmt": "prettier --write . && eslint . --fix",
@@ -128,7 +128,7 @@
     "*.{js,ts,jsx,tsx}": [
       "prettier --write",
       "eslint --fix",
-      "jest -uo --pass-with-no-tests"
+      "yarn test -uo --pass-with-no-tests"
     ],
     "*.{md,json,yml,yaml,html,htm,css,graphql,gql}": [
       "prettier --write"

@@ -1,3 +1,5 @@
+import { jest } from '@jest/globals'
+
 export const pino = () => ({
   info: jest.fn(),
   error: jest.fn(),

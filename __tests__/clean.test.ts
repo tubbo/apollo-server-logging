@@ -1,4 +1,5 @@
-import { clean } from './clean'
+import { test } from '@jest/globals'
+import { clean } from '../clean'
 
 test('clean variable names', () => {
   const variables = clean(['password'], { name: 'foo', password: 'bar' })
