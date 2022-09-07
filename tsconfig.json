@@ -12,7 +12,13 @@
     "sourceMap": true
   },
   "include": ["**/*.ts"],
-  "exclude": ["**/*.test.*", "**/*.spec.*", "dist/**/*", "__*__/**/*"],
+  "exclude": [
+    "**/*.test.*",
+    "**/*.spec.*",
+    "dist/**/*",
+    "__*__/**/*",
+    "testing"
+  ],
   "typedocOptions": {
     "exclude": ["**/*.test.*"],
     "entryPoints": ["index.ts"]
