@@ -163,6 +163,7 @@
         {
           "assets": [
             "CHANGELOG.md",
+            "docs",
             "package.json"
           ]
         }
