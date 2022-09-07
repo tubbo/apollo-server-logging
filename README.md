@@ -46,6 +46,11 @@ export const server = new ApolloServer({
 })
 ```
 
+For more options, check out [the documentation][].
+
+**Full Documentation:** https://tubbo.github.io/apollo-server-logging
+
 [apollo server]: https://www.apollographql.com/docs/apollo-server/
 [pino]: https://github.com/pinojs/pino
 [@shellscape/apollo-log]: https://github.com/shellscape/apollo-log
+[the documentation]: https://tubbo.github.io/apollo-server-logging/interfaces/ApolloLoggerPluginOptions.html
