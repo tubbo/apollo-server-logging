@@ -37,6 +37,7 @@
     "prettier": "^2.7.1",
     "semantic-release": "^19.0.5",
     "ts-node": "^10.9.1",
+    "typedoc": "0.23.14",
     "typescript": "^4.8.2"
   },
   "types": "./dist/types/index.d.ts",
@@ -57,10 +58,11 @@
   ],
   "scripts": {
     "prepare": "husky install",
-    "build": "run-p build:types build:esm build:cjs",
+    "build": "run-p build:types build:esm build:cjs docs",
     "build:types": "tsc --declaration --emitDeclarationOnly --declarationMap --outDir dist/types",
     "build:esm": "tsc --module esnext --target esnext --outDir dist/esm",
     "build:cjs": "tsc --module commonjs --target es2016 --outDir dist/cjs",
+    "docs": "typedoc",
     "types": "tsc --noEmit",
     "test": "node --experimental-vm-modules $(yarn bin jest)",
     "lint": "eslint .",
