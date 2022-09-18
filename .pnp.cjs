@@ -41,7 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@swc/core", "npm:1.3.1"],\
             ["@swc/jest", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:0.2.22"],\
             ["@types/eslint", "npm:8.4.6"],\
-            ["@types/jest", "npm:29.0.2"],\
+            ["@types/jest", "npm:29.0.3"],\
             ["@types/luxon", "npm:3.0.1"],\
             ["@types/node", "npm:18.7.13"],\
             ["@types/prettier", "npm:2.7.0"],\
@@ -2675,10 +2675,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/jest", [\
-        ["npm:29.0.2", {\
-          "packageLocation": "./.yarn/cache/@types-jest-npm-29.0.2-633da80e03-27c46b58fa.zip/node_modules/@types/jest/",\
+        ["npm:29.0.3", {\
+          "packageLocation": "./.yarn/cache/@types-jest-npm-29.0.3-3116a436db-14a8ec1954.zip/node_modules/@types/jest/",\
           "packageDependencies": [\
-            ["@types/jest", "npm:29.0.2"],\
+            ["@types/jest", "npm:29.0.3"],\
             ["expect", "npm:29.0.2"],\
             ["pretty-format", "npm:29.0.2"]\
           ],\
@@ -3347,7 +3347,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@swc/core", "npm:1.3.1"],\
             ["@swc/jest", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:0.2.22"],\
             ["@types/eslint", "npm:8.4.6"],\
-            ["@types/jest", "npm:29.0.2"],\
+            ["@types/jest", "npm:29.0.3"],\
             ["@types/luxon", "npm:3.0.1"],\
             ["@types/node", "npm:18.7.13"],\
             ["@types/prettier", "npm:2.7.0"],\
@@ -4898,7 +4898,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["eslint-plugin-jest", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:27.0.4"],\
             ["@types/eslint", "npm:8.4.6"],\
-            ["@types/jest", "npm:29.0.2"],\
+            ["@types/jest", "npm:29.0.3"],\
             ["@types/typescript-eslint__eslint-plugin", null],\
             ["@typescript-eslint/eslint-plugin", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:5.37.0"],\
             ["@typescript-eslint/utils", "virtual:4a27d3c85268891d4da67988e95b27ca39ddce930908d32b873d2ae0f5d36ce5989d14a030efab556b5f36e1ea8387d72abdfeff889fc3d3cf4fb3821dfaca62#npm:5.35.1"],\
