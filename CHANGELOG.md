@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/tubbo/apollo-server-logging/compare/v1.0.1...v1.0.2) (2022-11-03)
+
+
+### Bug Fixes
+
+* prevent error when operation type is empty ([06df9e7](https://github.com/tubbo/apollo-server-logging/commit/06df9e73b7baa34ceae3bb5d47924f51bd04a4c4))
+
 ## [1.0.1](https://github.com/tubbo/apollo-server-logging/compare/v1.0.0...v1.0.1) (2022-08-29)
 
 
