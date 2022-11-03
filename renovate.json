@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:js-lib", "group:all"],
+  "extends": ["config:js-lib", "group:allNonMajor"],
   "platformCommit": true,
   "platformAutomerge": true,
   "prCreation": "not-pending",
@@ -12,6 +12,11 @@
       "matchDatasources": ["npm"],
       "stabilityDays": 3,
       "internalChecksFilter": "strict"
+    },
+    {
+      "description": "Prevent automatically merging major version upgrades",
+      "matchUpdateTypes": ["major"],
+      "automerge": false
     }
   ]
 }
