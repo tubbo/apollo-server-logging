@@ -131,7 +131,7 @@ export function ApolloLoggerPlugin(options: Options): ApolloServerPlugin {
           request: { variables },
         }) {
           const params = inspect(clean(cleanedVariableNames, variables))
-          const kind = operation.operation
+          const kind = operation?.operation || 'operation'
           const name = operationName || ''
 
           logger.info(`Started ${kind} ${name}`)
