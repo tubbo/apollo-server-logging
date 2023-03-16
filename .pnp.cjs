@@ -56,7 +56,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:29.0.3"],\
             ["jest-mock", "npm:29.0.3"],\
             ["lint-staged", "npm:13.0.3"],\
-            ["luxon", "npm:3.0.2"],\
+            ["luxon", "npm:3.3.0"],\
             ["nanoid", "npm:4.0.0"],\
             ["npm-run-all", "npm:4.1.5"],\
             ["pino", "npm:8.5.0"],\
@@ -3362,7 +3362,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:29.0.3"],\
             ["jest-mock", "npm:29.0.3"],\
             ["lint-staged", "npm:13.0.3"],\
-            ["luxon", "npm:3.0.2"],\
+            ["luxon", "npm:3.3.0"],\
             ["nanoid", "npm:4.0.0"],\
             ["npm-run-all", "npm:4.1.5"],\
             ["pino", "npm:8.5.0"],\
@@ -7546,10 +7546,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["luxon", [\
-        ["npm:3.0.2", {\
-          "packageLocation": "./.yarn/cache/luxon-npm-3.0.2-0ce4d0fdf9-39a29b225c.zip/node_modules/luxon/",\
+        ["npm:3.3.0", {\
+          "packageLocation": "./.yarn/cache/luxon-npm-3.3.0-bdbae9bfd5-50cf17a0dc.zip/node_modules/luxon/",\
           "packageDependencies": [\
-            ["luxon", "npm:3.0.2"]\
+            ["luxon", "npm:3.3.0"]\
           ],\
           "linkType": "HARD"\
         }]\
