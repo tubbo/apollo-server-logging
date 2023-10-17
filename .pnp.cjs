@@ -57,7 +57,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-mock", "npm:29.0.3"],\
             ["lint-staged", "npm:13.0.3"],\
             ["luxon", "npm:3.3.0"],\
-            ["nanoid", "npm:4.0.0"],\
+            ["nanoid", "npm:5.0.2"],\
             ["npm-run-all", "npm:4.1.5"],\
             ["pino", "npm:8.5.0"],\
             ["prettier", "npm:2.7.1"],\
@@ -3363,7 +3363,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-mock", "npm:29.0.3"],\
             ["lint-staged", "npm:13.0.3"],\
             ["luxon", "npm:3.3.0"],\
-            ["nanoid", "npm:4.0.0"],\
+            ["nanoid", "npm:5.0.2"],\
             ["npm-run-all", "npm:4.1.5"],\
             ["pino", "npm:8.5.0"],\
             ["prettier", "npm:2.7.1"],\
@@ -7940,10 +7940,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["nanoid", [\
-        ["npm:4.0.0", {\
-          "packageLocation": "./.yarn/cache/nanoid-npm-4.0.0-924f5c6312-7d5946df5c.zip/node_modules/nanoid/",\
+        ["npm:5.0.2", {\
+          "packageLocation": "./.yarn/cache/nanoid-npm-5.0.2-2802fdb2f8-fa6908c2c6.zip/node_modules/nanoid/",\
           "packageDependencies": [\
-            ["nanoid", "npm:4.0.0"]\
+            ["nanoid", "npm:5.0.2"]\
           ],\
           "linkType": "HARD"\
         }]\
