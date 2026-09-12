@@ -43,7 +43,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/eslint", "npm:8.4.6"],\
             ["@types/jest", "npm:29.0.3"],\
             ["@types/luxon", "npm:3.0.1"],\
-            ["@types/node", "npm:18.7.13"],\
+            ["@types/node", "npm:22.20.2"],\
             ["@types/prettier", "npm:2.7.0"],\
             ["@typescript-eslint/eslint-plugin", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:5.37.0"],\
             ["@typescript-eslint/parser", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:5.37.0"],\
@@ -2742,6 +2742,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.7.13"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:22.20.2", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-22.20.2-fd23b26d0e-41a5c7df44.zip/node_modules/@types/node/",\
+          "packageDependencies": [\
+            ["@types/node", "npm:22.20.2"],\
+            ["undici-types", "npm:6.21.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@types/normalize-package-data", [\
@@ -3349,7 +3357,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/eslint", "npm:8.4.6"],\
             ["@types/jest", "npm:29.0.3"],\
             ["@types/luxon", "npm:3.0.1"],\
-            ["@types/node", "npm:18.7.13"],\
+            ["@types/node", "npm:22.20.2"],\
             ["@types/prettier", "npm:2.7.0"],\
             ["@typescript-eslint/eslint-plugin", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:5.37.0"],\
             ["@typescript-eslint/parser", "virtual:afe8081b83b37e6fdd99ce285d85910a77861baf25a4fdfd7487c5389c0b7996fa1526ece91683208991aa74588936741e49cf136810c74e40ae9428399287d9#npm:5.37.0"],\
@@ -10356,7 +10364,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@tsconfig/node12", "npm:1.0.11"],\
             ["@tsconfig/node14", "npm:1.0.3"],\
             ["@tsconfig/node16", "npm:1.0.3"],\
-            ["@types/node", "npm:18.7.13"],\
+            ["@types/node", "npm:22.20.2"],\
             ["@types/swc__core", null],\
             ["@types/swc__wasm", null],\
             ["@types/typescript", null],\
@@ -10565,6 +10573,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["has-bigints", "npm:1.0.2"],\
             ["has-symbols", "npm:1.0.3"],\
             ["which-boxed-primitive", "npm:1.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["undici-types", [\
+        ["npm:6.21.0", {\
+          "packageLocation": "./.yarn/cache/undici-types-npm-6.21.0-eb2b0ed56a-46331c7d60.zip/node_modules/undici-types/",\
+          "packageDependencies": [\
+            ["undici-types", "npm:6.21.0"]\
           ],\
           "linkType": "HARD"\
         }]\
