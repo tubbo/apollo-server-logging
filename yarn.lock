@@ -2509,7 +2509,7 @@ __metadata:
     jest-mock: 29.0.3
     lint-staged: 13.0.3
     luxon: ^3.0.2
-    nanoid: ^4.0.0
+    nanoid: ^5.0.0
     npm-run-all: 4.1.5
     pino: 8.5.0
     prettier: 2.7.1
@@ -6416,12 +6416,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "nanoid@npm:4.0.0"
+"nanoid@npm:^5.0.0":
+  version: 5.1.16
+  resolution: "nanoid@npm:5.1.16"
   bin:
     nanoid: bin/nanoid.js
-  checksum: 7d5946df5c6d383694195b781ae7b5067c149d164ec71e910d6b06676309c3459b68af570b944fb5ecd5065d19df464f05700d141d70bb712ff8ca06642fd8df
+  checksum: b1e702e2b7072e74ac2ae880907d0a291853a36617ec5c3d27d81ab04965ebc0d4d0f707cf9220928cf93d5370b1f561c930efee853dc9c1a3facaefdf1a42ee
   languageName: node
   linkType: hard
 
